@@ -49,9 +49,13 @@
         </p>
         <p class="showTimer">00:00:00</p>
         <form>					
-          <a data-role="button">Like This!</a>
-          <a data-role="button">Boo!</a>
-        </form>
+		        	<a data-role="button" onclick="onLikeThis()">Like This!</a>
+		        	<a data-role="button">Boo!</a>
+			    </form>
+			    
+			    <div>
+			    	<canvas id="heatmap" width="480" height="480" style="width:100%"></canvas>
+			    </div>
       </div>    
 
       <div data-role="footer" data-id="foo1" data-position="fixed">
