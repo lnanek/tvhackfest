@@ -5,9 +5,19 @@
     "msg": "hi"
   },
   {
+    "name": "dirk",
+    "time": "14",
+    "msg": "this is where it gets crazy"
+  },
+  {
     "name": "ronn",
-    "time": "30",
+    "time": "15",
     "msg": "i like this show"
+  },
+  {
+    "name": "dirk",
+    "time": "20",
+    "msg": "oh no he didn't"
   }  
 ]
 

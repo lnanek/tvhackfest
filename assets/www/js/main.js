@@ -29,9 +29,11 @@ function onDeviceReady() {
 
   //var lastTime = new Date();
   var counter = 0;
+  var timer = $('.showTimer');
   var updateTimer = function() {
     counter++;
-    $('#showTimer').text("Time: " + (counter/10) + 's');
+    timer.text("Time: " + (counter/10) + 's');
+    $(document).trigger('showTimeUpdate', [Math.round((counter/10))]); // notify others 
   };
   setInterval(updateTimer, 100);    
     
