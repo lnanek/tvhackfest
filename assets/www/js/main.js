@@ -12,6 +12,12 @@ function onBackButtonDown(e) {
     }
 }
 
+window.echo = function(str, callback) {
+    cordova.exec(callback, function(err) {
+        callback('Nothing to echo.');
+    }, "Echo", "echo", [str]);
+};
+
 function onload() {
     console.log("onload()");
     
@@ -25,5 +31,10 @@ function onload() {
     	setTimeout(updateTimer, 100);
     };
     updateTimer();    
+    
+    window.echo("echome", function(echoValue) {
+        alert(echoValue == "echome"); // should alert true.
+    });
+    
 }
 
