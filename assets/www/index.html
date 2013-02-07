@@ -51,10 +51,17 @@
         <form>					
           <a data-role="button">Like This!</a>
           <a data-role="button">Boo!</a>
-
-          <a id="submit" href="#commentsPage" data-role="button">Commentaries</a>
         </form>
       </div>    
+
+      <div data-role="footer" data-id="foo1" data-position="fixed">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#resultsPage">Likes</a></li>
+            <li><a href="#commentsPage">Commentary</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div data-role="page" id="commentsPage">
@@ -71,10 +78,19 @@
         <form>					
           <textarea rows="2" cols="50"></textarea>
           <a data-role="button">Send</a>
-          <a href="#resultsPage" data-role="button">Back to Like</a>
         </form>
-      </div>    
+      </div>   
+
+      <div data-role="footer" data-id="foo1" data-position="fixed">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#resultsPage">Likes</a></li>
+            <li><a href="#commentsPage">Commentary</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
+
 
     <script type="text/javascript" src="jquery.mobile/jquery-1.7.2.min"></script>		
     <script type="text/javascript" src="js/custom-scripting.js"></script>
