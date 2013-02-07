@@ -1,6 +1,8 @@
 
 console.log("main.js ran");
 
+document.addEventListener('deviceready', onDeviceReady, false);
+
 function onBackButtonDown(e) { 
     console.log("onBackButtonDown()");
     
@@ -18,8 +20,8 @@ window.echo = function(str, callback) {
     }, "Echo", "echo", [str]);
 };
 
-function onload() {
-    console.log("onload()");
+function onDeviceReady() {
+    console.log("onDeviceReady()");
     
     document.addEventListener("backbutton", onBackButtonDown, true);
 
