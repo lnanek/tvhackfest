@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/previewFrame"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/capturedImg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="fitCenter"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center" >
+
+            <ToggleButton
+                android:id="@+id/livemode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textOff="livemode"
+                android:textOn="livemode" />
+
+            <Button
+                android:id="@+id/setupImg"
+                android:layout_width="125px"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="Setup Image Query"
+                android:textSize="10dp" />
+
+            <Button
+                android:id="@+id/setupVid"
+                android:layout_width="125px"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="Setup Video Query"
+                android:textSize="10dp" />
+
+            <Button
+                android:id="@+id/setupAud"
+                android:layout_width="125px"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="Setup Audio Query"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/resultTxt"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:enabled="false"
+                android:text="Start Query!" />
+
+            <Button
+                android:id="@+id/stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:enabled="false"
+                android:text="Stop Query!" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Status"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+</RelativeLayout>
