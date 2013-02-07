@@ -1,5 +1,8 @@
 var comments = {
+  myComments: [],
+  comments: [],
   init: function () {
+    
     
     var base = window.location.href;
   
