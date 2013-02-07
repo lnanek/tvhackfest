@@ -1,8 +1,6 @@
 
 console.log("main.js ran");
 
-document.addEventListener('deviceready', onDeviceReady, false);
-
 function onBackButtonDown(e) { 
     console.log("onBackButtonDown()");
     
@@ -14,18 +12,18 @@ function onBackButtonDown(e) {
     }
 }
 
-function onDeviceReady() {
-    console.log("onDocumentReady()");
+function onload() {
+    console.log("onload()");
     
     document.addEventListener("backbutton", onBackButtonDown, true);
 
-	var cw = Raphael.colorwheel($("#input_example .colorwheel")[0],150);
-	cw.color("#FF0000");
-
-    cw.onchange(function(c){
-        $("#colorDisplay").css("background-color",c.hex);
-    	$("#colorDisplay").val(c.hex)
-    });
-    
+    //var lastTime = new Date();
+    var counter = 0;
+    var updateTimer = function() {
+    	counter++;
+    	$('#showTimer').text("Time: " + counter);
+    	setTimeout(updateTimer, 100);
+    };
+    updateTimer();    
 }
 

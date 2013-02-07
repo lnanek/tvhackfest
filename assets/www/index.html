@@ -11,7 +11,7 @@
         
         <title>Likeplause</title>        
     </head>
-    <body>
+    <body onload="onload()">
     
 		<div data-role="page" id="formPage">
 		
@@ -47,9 +47,10 @@
 		    	<p>
 		    		Tap like whenever a good part comes! As much as you like!
 		    	</p>
+		    	<p id="showTimer">00:00:00</p>
 		    	<form>					
 		        	<a data-role="button">Like This!</a>
-
+		        	<a data-role="button">Boo!</a>
 			    </form>
 		    </div>    
 		</div>
@@ -57,8 +58,8 @@
 		<script type="text/javascript" src="jquery.mobile/jquery-1.7.2.min"></script>		
 		<script type="text/javascript" src="js/custom-scripting.js"></script>
 		<script type="text/javascript" src="jquery.mobile/jquery.mobile-1.1.0.js"></script>
-        <script type="text/javascript" src="cordova-2.3.0.js"></script>
 	    <script src="js/main.js"></script>
+        <script type="text/javascript" src="cordova-2.3.0.js"></script>
 	    
     </body>
 </html>
