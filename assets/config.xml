@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<MajorVersion>1</MajorVersion>
+	<MinorVersion>0</MinorVersion>
+    <ServiceHost>tvsync.vobile.net</ServiceHost>
+    <ServicePort>80</ServicePort>
+    <ServiceSSLPort>443</ServiceSSLPort>
+	<Query>
+	    <!-- "Type": mandatory, can be one of the following values: "image"/"video"/"audio"/"av" -->
+	    <Type>image</Type>
+	    <!-- "LiveMode": optional, boolean, the default is false -->
+	    <LiveMode>false</LiveMode>
+	    <CameraID>0</CameraID>
+        <Duration>10</Duration>
+	</Query>
+	<Query>
+	    <Type>video</Type>
+	    <LiveMode>false</LiveMode>
+	    <CameraID>0</CameraID>
+        <Duration>10</Duration>
+	</Query>
+	<Query>
+	    <Type>audio</Type>
+	    <LiveMode>false</LiveMode>
+        <Duration>10</Duration>
+	</Query>
+</Configuration>

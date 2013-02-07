@@ -7,7 +7,9 @@ import java.util.HashMap;
 import org.json.JSONObject;
 
 import tvhackfest.likeplause.R;
+import tvhackfest.likeplause.ViewWebContentActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -31,6 +33,8 @@ import com.vobileinc.tvsyncapi.TVSYNCService.OnConnectListener;
 import com.vobileinc.tvsyncapi.TVSYNCService.OnQueryCreateListener;
 
 public class TVSYNCExampleActivity extends Activity {
+	
+	public static String LAST_RESULT = "No Result";
 
 	static final String				kApiKey		= "sealsvobile";
 	static final String				LOG_TAG		= "TVSYNCExampleActivity";
@@ -77,6 +81,14 @@ public class TVSYNCExampleActivity extends Activity {
 
 														// stops the query
 														query.stopQuery();
+														
+														LAST_RESULT = result.toString();
+														
+														
+														Intent intent = new Intent(TVSYNCExampleActivity.this, ViewWebContentActivity.class);
+														startActivity(intent);
+														
+														
 													}
 
 													@Override
