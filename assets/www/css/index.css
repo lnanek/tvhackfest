@@ -1,0 +1,45 @@
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: text;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+}
+
+/* Portrait layout (default) */
+.app {
+
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+
+    }
+}
+
+.sizeForm div {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+body {
+    font-size: 14px;
+}
+
+@media screen and (-webkit-device-pixel-ratio: 0.75) {
+    body {font-size: 10.5px;}
+}
+@media screen and (-webkit-device-pixel-ratio: 1.0) {desktop browsers
+    body {font-size: 14px;}
+}
+@media screen and (-webkit-device-pixel-ratio: 1.5) {e.g. Google Nexus S (Samsung Galaxy S)
+    body {font-size: 16px;}
+}
+@media screen and (-webkit-device-pixel-ratio: 2.0) {e.g. iPad
+    body {font-size: 18px;}
+}
+
