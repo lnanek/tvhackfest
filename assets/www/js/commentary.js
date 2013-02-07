@@ -1,14 +1,20 @@
-function onload() {
-  var base = window.location.href;
+var comments = {
+  init: function () {
+    
+    var base = window.location.href;
   
-  console.log("onload()");
-  $.ajax({
-    dataType: "json",
-    url: base + 'js/data/comments.json',
-    //  data: data,
-    success: function (data) {
-      console.log(data);
-    }
-  });
-}
+    $.ajax({
+      dataType: "json",
+      url: base + 'js/data/comments.json',
+      //  data: data,
+      success: function (data) {
+        console.log('comments', data);
+      }
+    });
 
+  }
+};
+
+$(document).ready(function() {
+  comments.init();
+});
