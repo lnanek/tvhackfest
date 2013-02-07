@@ -4,31 +4,29 @@ console.log("main.js ran");
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onBackButtonDown(e) { 
-    console.log("onBackButtonDown()");
+  console.log("onBackButtonDown()");
     
-    if($.mobile.activePage.is('#formPage')){
-        e.preventDefault();
-        navigator.app.exitApp();
-    } else {
-        navigator.app.backHistory();
-    }
+  if($.mobile.activePage.is('#formPage')){
+    e.preventDefault();
+    navigator.app.exitApp();
+  } else {
+    navigator.app.backHistory();
+  }
 }
 
 window.echo = function(str, callback) {
-	if ( !cordova || !cordova.exec ) {
-		return;
-	}
-	
+  if (cordova && cordova.exec) {
     cordova.exec(callback, function(err) {
-        callback('Nothing to echo.');
+      callback('Nothing to echo.');
     }, "Echo", "echo", [str]);
+  }
 };
 
 var counter = 0;
 var likeTimes = [];
 
 function onDeviceReady() {
-    console.log("onDeviceReady()");
+  console.log("onDeviceReady()");
     
     document.addEventListener("backbutton", onBackButtonDown, true);
 
@@ -36,14 +34,16 @@ function onDeviceReady() {
     var updateTimer = function() {
     	counter++;
     	$('#showTimer').text("Time: " + counter);
-    	setTimeout(updateTimer, 100);
     };
-    updateTimer();    
+    setInterval(updateTimer, 100);    
     
     window.echo("echome", function(echoValue) {
         alert(echoValue == "echome"); // should alert true.
     });
     
+  window.echo("echome", function(echoValue) {
+    alert(echoValue == "echome"); // should alert true.
+  });
 }
 
 function onLikeThis() {
@@ -74,3 +74,7 @@ function update() {
 	}
     
 }
+
+$(document).ready(function() {
+  onDeviceReady();
+});
