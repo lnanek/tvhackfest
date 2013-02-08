@@ -102,7 +102,12 @@ setInterval(function() {
     claps: 0,
     comments: []
   };
-  claps = _.last(_.pluck(data, 'claps'), 10); // TODO: Use global points var
+  if (clientMode > 1) {
+    claps.shift();
+    claps.push(_.random(0, 14));
+  } else {
+    claps = _.last(_.pluck(data, 'claps'), 10); // TODO: Use global points var
+  }
   while (claps.length < 10) {
     claps.unshift(0);
   }

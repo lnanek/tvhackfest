@@ -10,11 +10,13 @@ var clientMode = 0; // 0 - phone, 1 - tv, 2 - smarttv
 //      $('#clap').addClass('active');
 //    }
 //  }
-if (navigator.userAgent.indexOf('GoogleTV')>0 || location.search.indexOf('tv')>0) {
-  clientMode = 1;
-}
   
 $(document).on('ready', function () {
+
+  if (navigator.userAgent.indexOf('GoogleTV')>0 || location.search.indexOf('tv')>0) {
+    clientMode = 1;
+    $('#canvas').css({ height: '150px' });
+  }
   
   
   

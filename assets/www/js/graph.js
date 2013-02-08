@@ -34,6 +34,7 @@ function onFrame(event) {
   for (var i = 0; i < points; i++) {
     var sinSeed = event.count + (i + i % 10) * 100;
     var sinHeight = Math.sin(sinSeed / 200) * (maxClaps + 1) * 0.1;
+    // var sinHeight = 0;
     // var yPos = Math.sin(sinSeed / 100) * sinHeight + height;
     var yPos = (claps[i] + sinHeight) / ((maxClaps + 1) * 0.9);
     if (yPos < 0) {
