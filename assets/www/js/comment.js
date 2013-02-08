@@ -1,4 +1,5 @@
 var comments = {
+  name: '',
   showTime: 0,
   commentList: null, 
   myComments: {},
@@ -25,7 +26,7 @@ var comments = {
   sendComment: function (msg) {
     var self = this;
     var comment = {
-      name: 'me',
+      name: self.name,
       time: self.showTime,
       msg: msg
     };
@@ -48,6 +49,9 @@ var comments = {
   },
   init: function () {
     var self = this;
+    
+    self.name = 'user'+Math.round(Math.random()*100);
+    $('#myname').html(self.name);
     
     self.commentList = $('#commentList');
     
@@ -95,8 +99,26 @@ $(document).on('ready', function () {
     }
   });
   
+  $('#comment').swipe( {
+    swipe:function(event, direction, distance, duration, fingerCount) {
+      if (direction == 'right') {
+        $.ajax({
+          dataType: "json",
+          url: serverUrl + 'js/data/comments.json',
+          data: {
+            clean:1
+          },
+          success: function (data) {
+            console.log('clean', data);
+          }
+        });
+      }
+    },
+    threshold:0
+  });
+
   commentField.on('blur', function () {
-   commentField.val(''); 
+    commentField.val(''); 
   });
 
 });

@@ -16,7 +16,11 @@ if ($url) {
   $data = file_get_contents($url);
   if (!empty($args)) {
     $data = json_decode($data);
-    $data[] = $args;
+    if (isset($args['clean']) && $args['clean']) {
+      $data = array();
+    } else {
+      $data[] = $args;
+    }
     $data = json_encode($data);
     file_put_contents($url, $data);
   }
