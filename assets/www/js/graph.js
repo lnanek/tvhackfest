@@ -9,31 +9,35 @@ initializePath();
 function initializePath() {
   center = view.center;
   width = view.size.width;
-  height = view.size.height / 2;
+  height = view.size.height;
   path.segments = [];
-  // path.add(view.bounds.bottomLeft);
+  path.add(view.bounds.bottomLeft);
   for (var i = 0; i < points; i++) {
-    var point = new Point(width / points * i, center.y);
+    var point = new Point(width / (points - 1) * i, center.y);
     path.add(point);
   }
-  // path.add(view.bounds.bottomRight);
+  path.add(view.bounds.bottomRight);
   path.fullySelected = false;
 }
 
 function onFrame(event) {
-  pathHeight += (center.y - mousePos.y - pathHeight) / 10;
-  for (var i = 1; i < points; i++) {
-    var sinSeed = event.count + (i + i % 10) * 100;
-    var sinHeight = Math.sin(sinSeed / 200) * pathHeight;
-    var yPos = Math.sin(sinSeed / 100) * sinHeight + height;
+  // pathHeight += (center.y - mousePos.y - pathHeight) / 10;
+  for (var i = points; i > 0; i--) {
+    // var sinSeed = event.count + (i + i % 10) * 100;
+    // var sinHeight = Math.sin(sinSeed / 200) * pathHeight;
+    // var yPos = Math.sin(sinSeed / 100) * sinHeight + height;
+    var yPos = height;
+    if (claps.length - 1 - (points - i) > 0) {
+      yPos -= claps[claps.length - 1 - (points - i)];
+    }
     path.segments[i].point.y = yPos;
   }
-  path.smooth();
+  // path.smooth();
 }
 
-function onMouseMove(event) {
-  mousePos = event.point;
-}
+// function onMouseMove(event) {
+//   mousePos = event.point;
+// }
 
 // function onMouseDown(event) {
 // }
