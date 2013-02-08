@@ -53,12 +53,16 @@ function onDeviceReady() {
   window.echo("echome", function(echoValue) {
     alert(echoValue == "echome"); // should alert true.
   });
+  
+  heatmap.init();
+  comments.init();
 }
 
 function onLikeThis() {
   likeTimes.push(counter);
 }
 
+/*
 var context = document.getElementById('heatmap').getContext('2d');
 
 requestAnimationFrame(update);
@@ -83,6 +87,7 @@ function update() {
   }
     
 }
+*/
 
 $(document).ready(function() {
   if (!ready) {

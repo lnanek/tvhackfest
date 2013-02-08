@@ -84,6 +84,6 @@ var comments = {
   }
 };
 
-$(document).ready(function() {
-  comments.init();
-});
+//$(document).ready(function() {
+  
+//});
