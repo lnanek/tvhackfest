@@ -19,13 +19,14 @@ function initializePath() {
   }
   path.add(view.bounds.bottomRight);
   path.add(view.bounds.bottomRight);
+  path.add(view.bounds.bottomCenter);
   path.segments[0].point.x -= 50;
   path.segments[0].point.y += 50;
   path.segments[1].point.x -= 20;
   path.segments[12].point.x += 20;
   path.segments[13].point.x += 50;
   path.segments[13].point.y += 50;
-  console.log(path.segments.length);
+  path.segments[14].point.y += 80;
   path.fullySelected = false;
 }
 

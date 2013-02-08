@@ -70,6 +70,7 @@ $('body').on('click', function() {
   }
 });
 setInterval(function() {
+  console.log('claps', data[seconds].claps);
   seconds = (parseInt(seconds, 10) + 5).toString();
   // TODO: Extend previous data
   data[seconds] = {
