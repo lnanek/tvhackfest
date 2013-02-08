@@ -60,6 +60,9 @@ window.onload = function () {
 // If PhoneGap, run when ready.
 document.addEventListener('deviceready', onDeviceReady, false);
 
+var plause = $('#plause');
+plause.css({ opacity: '0.2' });
+
 // Clapping
 $('body').on('click', function() {
   // console.log('clap', data[seconds].claps++);
@@ -67,10 +70,13 @@ $('body').on('click', function() {
   claps[claps.length - 1]++;
   if (maxClaps < claps[claps.length - 1]) {
     maxClaps = claps[claps.length - 1];
+    plause.css({ opacity: '1' });
   }
 });
 setInterval(function() {
-  console.log('claps', data[seconds].claps);
+  var lastClaps = data[seconds].claps;
+  console.log('claps', lastClaps);
+
   seconds = (parseInt(seconds, 10) + 5).toString();
   // TODO: Extend previous data
   data[seconds] = {
@@ -82,4 +88,6 @@ setInterval(function() {
     claps.unshift(0);
   }
   maxClaps = _.max(claps);
+
+  plause.css({ opacity: 0.2 + (lastClaps / maxClaps) * 0.8 });
 }, 5000);

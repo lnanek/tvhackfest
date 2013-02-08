@@ -4,6 +4,13 @@ body {
   background-color: black;
   color: #fff;
   font-size: 20px;
+  font-family: 'Arial Black';
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  font-weight: normal;
 }
 
 #canvas {
@@ -25,10 +32,17 @@ body {
 
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  color: white;
 }
 
 body {
   -webkit-touch-callout: none;
   -webkit-text-size-adjust: none;
   -webkit-user-select: text;
+}
+
+#plause {
+  opacity: 1;
+  -webkit-transition: opacity 4s ease-in-out;
+  transition: opacity 4s ease-in-out;
 }

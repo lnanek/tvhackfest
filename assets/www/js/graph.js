@@ -35,7 +35,7 @@ function onFrame(event) {
     var sinSeed = event.count + (i + i % 10) * 100;
     var sinHeight = Math.sin(sinSeed / 200) * (maxClaps + 1) * 0.1;
     // var yPos = Math.sin(sinSeed / 100) * sinHeight + height;
-    var yPos = (claps[i] + sinHeight) / ((maxClaps + 1) * 0.9);
+    var yPos = (claps[i] * 3 + sinHeight) / ((maxClaps * 3 + 1) * 0.9);
     if (yPos < 0) {
       yPos = 0;
     }
