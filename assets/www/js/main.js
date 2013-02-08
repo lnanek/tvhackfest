@@ -1,4 +1,7 @@
+serverUrl = "http://tvhackfest.workatplay.com/server.php?_url=";
+serverUrl = window.location.href + 'server.php?_url=';
 
+ready = false;
 console.log("main.js ran");
 
 document.addEventListener('deviceready', onDeviceReady, false);
@@ -26,6 +29,7 @@ var counter = 0;
 var likeTimes = [];
 
 function onDeviceReady() {
+  ready = true;
   console.log("onDeviceReady()");
     
   document.addEventListener("backbutton", onBackButtonDown, true);
@@ -34,8 +38,11 @@ function onDeviceReady() {
   var timer = $('.showTimer');
   var updateTimer = function() {
     counter++;
-    timer.text("Time: " + (counter/10) + 's');
-    $(document).trigger('showTimeUpdate', [Math.round((counter/10))]); // notify others 
+    var sec = counter/10;
+    timer.text("Time: " + sec + 's');
+    if (sec == Math.round(sec)) {
+      $(document).trigger('showTimeUpdate', [Math.round((counter/10))]); // notify others 
+    }
   };
   setInterval(updateTimer, 100);    
     
@@ -78,7 +85,9 @@ function update() {
 }
 
 $(document).ready(function() {
-  onDeviceReady();
+  if (!ready) {
+    onDeviceReady();
+  }
 });
 
 $( document ).bind( "pageshow", function( event, data ){

@@ -24,25 +24,35 @@ var comments = {
     
     if (!_.size(self.comments)) return;
     if (self.comments[t] && self.comments[t].length) {
-      var comment = self.comments[t].shift();
+//      var comment = self.comments[t].shift();
       
-      self.addComment(comment);
+      for (var i = 0; i < self.comments[t].length; i++) {
+        self.addComment(self.comments[t][i]);
+      }
     }
   },
   sendComment: function () {
     var self = this;
     var myComment = $('#myComment');
-    
-    self.addComment({
+    var comment = {
       name: 'me',
       time: self.showTime,
       msg: myComment.val()
-    });
+    };
+    self.addComment(comment);
     myComment.val('');
+    
+    $.ajax({
+      dataType: "json",
+      url: serverUrl + 'js/data/comments.json',
+      data: comment,
+      success: function (data) {
+        console.log('save', data);
+      }
+    });
   },
   init: function () {
     var self = this;
-    var base = window.location.href;
     
     self.commentList = $('#commentList');
     
@@ -51,7 +61,7 @@ var comments = {
     
     $.ajax({
       dataType: "json",
-      url: base + 'js/data/comments.json',
+      url: serverUrl + 'js/data/comments.json',
       //  data: data,
       success: function (data) {
         //        self.comments = data;
@@ -64,7 +74,13 @@ var comments = {
         }
       }
     });
-
+//    $.ajax({
+//      url: 'http://tvhackfest.workatplay.com/server.php',
+//      //  data: data,
+//      success: function (data) {
+//        alert(data);
+//      }
+//    });
   }
 };
 
