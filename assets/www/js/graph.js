@@ -9,30 +9,42 @@ initializePath();
 function initializePath() {
   center = view.center;
   width = view.size.width;
-  height = view.size.height;
+  height = view.size.height * 0.9;
   path.segments = [];
   path.add(view.bounds.bottomLeft);
+  path.add(view.bounds.bottomLeft);
   for (var i = 0; i < points; i++) {
-    var point = new Point(width / (points - 1) * i, center.y);
+    var point = new Point(width / (points - 2)  * i, height);
     path.add(point);
   }
   path.add(view.bounds.bottomRight);
+  path.add(view.bounds.bottomRight);
+  path.segments[0].point.x -= 50;
+  path.segments[1].point.x -= 20;
+  path.segments[12].point.x += 20;
+  path.segments[13].point.x += 50;
+  console.log(path.segments.length);
   path.fullySelected = false;
 }
 
 function onFrame(event) {
-  // pathHeight += (center.y - mousePos.y - pathHeight) / 10;
-  for (var i = points; i > 0; i--) {
-    // var sinSeed = event.count + (i + i % 10) * 100;
-    // var sinHeight = Math.sin(sinSeed / 200) * pathHeight;
+  for (var i = 0; i < points; i++) {
+    var sinSeed = event.count + (i + i % 10) * 100;
+    var sinHeight = Math.sin(sinSeed / 200) * (maxClaps + 1) * 0.1;
     // var yPos = Math.sin(sinSeed / 100) * sinHeight + height;
-    var yPos = height;
-    if (claps.length - 1 - (points - i) > 0) {
-      yPos -= claps[claps.length - 1 - (points - i)];
+    var yPos = (claps[i] + sinHeight) / ((maxClaps + 1) * 0.9);
+    if (yPos < 0) {
+      yPos = 0;
     }
-    path.segments[i].point.y = yPos;
+    yPos = height - yPos * height;
+    if (yPos < 100) {
+      yPos = 100;
+    }
+    path.segments[i + 2].point.y = yPos;
   }
-  // path.smooth();
+  path.segments[1].point.y = path.segments[2].point.y;
+  path.segments[12].point.y = path.segments[11].point.y;
+  path.smooth();
 }
 
 // function onMouseMove(event) {
