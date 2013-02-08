@@ -37,18 +37,23 @@ function onDeviceReady() {
   document.addEventListener("backbutton", onBackButtonDown, true);
 
   window.echo("echome", function(echoValue) {
-	  console.log("echome()");
-    alert(echoValue); // should alert true.
+	console.log("echome()");
     
-    showData = jQuery.parseJSON(echoValue);
+	//alert("Received: " + echoValue); // should alert true.
     
-    for(var i = 0; i < showData.content_attrs.length; i++) {
-    	var pair = showData.content_attrs[i];
-    	if ( pair.name == "program_title" ) {
-    	    alert("show name = " + pair.value);    		
-    	}
-    }
-    
+	try {
+	    showData = jQuery.parseJSON(echoValue);
+	    
+	    for(var i = 0; i < showData.content_attrs.length; i++) {
+	    	var pair = showData.content_attrs[i];
+	    	if ( pair.name == "program_title" ) {
+	    		//alert(pair.value);
+	    	    $('#show-1').val(pair.value);
+	    	}
+	    }
+	} catch(error) {
+		// Do nothing.
+	}
   });
 
   window.result(function(jsonString) {
