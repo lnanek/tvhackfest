@@ -28,6 +28,10 @@ function onDeviceReady() {
     
   document.addEventListener("backbutton", onBackButtonDown, true);
 
+  window.echo("echome", function(echoValue) {
+    alert(echoValue == "echome"); // should alert true.
+  });
+  
   //var lastTime = new Date();
   var timer = $('.showTimer');
   var updateTimer = function() {
@@ -36,14 +40,7 @@ function onDeviceReady() {
     $(document).trigger('showTimeUpdate', [Math.round((counter/10))]); // notify others 
   };
   setInterval(updateTimer, 100);    
-    
-  window.echo("echome", function(echoValue) {
-    alert(echoValue == "echome"); // should alert true.
-  });
-    
-  window.echo("echome", function(echoValue) {
-    alert(echoValue == "echome"); // should alert true.
-  });
+        
 }
 
 function onLikeThis() {

@@ -39,6 +39,7 @@ public class TVSYNCExampleActivity extends Activity {
 	static final String				kApiKey		= "twmidgtol7t99yc4v86j6k2hi73kbq8q";
 	static final String				LOG_TAG		= "TVSYNCExampleActivity";
 
+	Button							skip;
 	Button							setupImg;
 	Button							setupVid;
 	Button							setupAud;
@@ -48,7 +49,6 @@ public class TVSYNCExampleActivity extends Activity {
 	FrameLayout						previewFrame;
 	ImageView						capturedImg;
 	TextView						resultTxt;
-	ToggleButton					livemode;
 
 	TVSYNCQuery						query;
 
@@ -171,7 +171,7 @@ public class TVSYNCExampleActivity extends Activity {
 		// construct parameters
 		// live or non-live
 		HashMap<TVSYNCQueryParameterKey, TVSYNCQueryParameterValue> params = new HashMap<TVSYNCQueryParameterKey, TVSYNCQueryParameterValue>();
-		params.put(TVSYNCQueryParameterKey.TVSYNCQueryParameterKeyLiveQuery, livemode.isChecked() ? TVSYNCQueryParameterValue.Yes : TVSYNCQueryParameterValue.No);
+		params.put(TVSYNCQueryParameterKey.TVSYNCQueryParameterKeyLiveQuery, TVSYNCQueryParameterValue.No);
 		// non-stop?
 		// params.put(TVSYNCQueryParameterKey.TVSYNCQueryParameterKeyQueryTimeout, TVSYNCQueryParameterValue.);
 
@@ -206,8 +206,16 @@ public class TVSYNCExampleActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		livemode = (ToggleButton) findViewById(R.id.livemode);
-
+		skip = (Button) findViewById(R.id.skip);
+		skip.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(TVSYNCExampleActivity.this, ViewWebContentActivity.class);
+				startActivity(intent);
+			}
+		});
+		
+		
 		setupImg = (Button) findViewById(R.id.setupImg);
 		setupImg.setOnClickListener(new OnClickListener() {
 			@Override
@@ -332,6 +340,5 @@ public class TVSYNCExampleActivity extends Activity {
 		setupImg.setEnabled(enabled);
 		setupAud.setEnabled(enabled);
 		setupVid.setEnabled(enabled);
-		livemode.setEnabled(enabled);
 	}
 }

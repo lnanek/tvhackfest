@@ -32,14 +32,6 @@
             android:layout_marginTop="10dp"
             android:gravity="center" >
 
-            <ToggleButton
-                android:id="@+id/livemode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ToggleButton"
-                android:textOff="livemode"
-                android:textOn="livemode" />
-
             <Button
                 android:id="@+id/setupImg"
                 android:layout_width="125px"
@@ -95,6 +87,14 @@
                 android:layout_marginTop="10dp"
                 android:enabled="false"
                 android:text="Stop Query!" />
+            
+            <Button
+                android:id="@+id/skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:enabled="true"
+                android:text="Skip Detection" />
         </LinearLayout>
 
         <TextView
