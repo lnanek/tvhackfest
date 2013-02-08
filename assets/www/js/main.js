@@ -14,7 +14,7 @@ function onBackButtonDown(e) {
 
 window.echo = function(str, callback) {
   if (cordova && cordova.exec) {
-	  console.log("echo()");
+    console.log("echo()");
     cordova.exec(callback, function(err) {
       callback('Nothing to echo.');
     }, "Echo", "echo", ["Message to Java."]);
@@ -27,10 +27,14 @@ window.result = function(callback) {
   }
 };
 
+var resultObject;
+// Default result values
+var contentId = "c04a2c84-6e8d-11e2-a9cd-fa163e53d66f";
+var programTitle = "the_simpsons_s24_e9";
+var referenceOffset = 11;
+
 var counter = 0;
 var likeTimes = [];
-var showData;
-var dislikeTimes = [];
 
 function onDeviceReady() {
   console.log("onDeviceReady()");
@@ -38,43 +42,46 @@ function onDeviceReady() {
   document.addEventListener("backbutton", onBackButtonDown, true);
 
   window.echo("echome", function(echoValue) {
-	console.log("echome()");
-    
-	//alert("Received: " + echoValue); // should alert true.
-    
-	try {
-	    showData = jQuery.parseJSON(echoValue);
-	    
-	    for(var i = 0; i < showData.content_attrs.length; i++) {
-	    	var pair = showData.content_attrs[i];
-	    	if ( pair.name == "program_title" ) {
-	    		//alert(pair.value);
-	    	    $('#show-1').val(pair.value);
-	    	}
-	    }
-	} catch(error) {
-		// Do nothing.
-	}
+    // console.log("echome()");
+    // alert(echoValue); // should alert true.
   });
 
   window.result(function(jsonString) {
-    console.log(jsonString);
+    alert("result()");
     alert(jsonString);
+    
+    resultObject = jQuery.parseJSON(jsonString);
+
+    if (resultObject.content_id) {
+      window.contentId = resultObject.content_id;
+    }
+
+    for(var i = 0; i < resultObject.content_attrs.length; i++) {
+      var pair = resultObject.content_attrs[i];
+      if (pair.name == "program_title" && pair.value) {
+        window.programTitle = pair.value;
+        $('#show-1').val(pair.value);
+      } else if (pair.name == "reference_offset" && pair.value) {
+        window.referenceOffset = parseInt(pair.value[0]);
+      }
+    }
+
+    counter = referenceOffset;
   });
   
   //var lastTime = new Date();
   var timer = $('.showTimer');
   var updateTimer = function() {
     counter++;
-    timer.text("Time: " + (counter/10) + 's');
-    $(document).trigger('showTimeUpdate', [Math.round((counter/10))]); // notify others 
+    timer.text("Time: " + (counter / 10) + 's');
+    $(document).trigger('showTimeUpdate', [Math.round((counter/10))]); // notify others
   };
-  setInterval(updateTimer, 100);    
+  setInterval(updateTimer, 100);
         
 }
 
 function onLikeThis() {
-  likeTimes.push(counter);
+  likeTimes.push(counter / 10);
 }
 
 var context = document.getElementById('heatmap').getContext('2d');
@@ -116,9 +123,9 @@ function update() {
 // If not PhoneGap device, then run onload.
 window.onload = function () {
 	if( !window.device ) {
-		onDeviceReady()
+		onDeviceReady();
 	}
-}
+};
 
 // If PhoneGap, run when ready.
 document.addEventListener('deviceready', onDeviceReady, false);
