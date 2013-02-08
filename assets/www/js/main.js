@@ -1,8 +1,6 @@
 
 console.log("main.js ran");
 
-document.addEventListener('deviceready', onDeviceReady, false);
-
 function onBackButtonDown(e) { 
   console.log("onBackButtonDown()");
     
@@ -54,13 +52,24 @@ function onLikeThis() {
 
 var context = document.getElementById('heatmap').getContext('2d');
 
-requestAnimationFrame(update);
+window.requestAnimFrame = function(){
+    return (
+        window.requestAnimationFrame       || 
+        window.webkitRequestAnimationFrame || 
+        window.mozRequestAnimationFrame    || 
+        window.oRequestAnimationFrame      || 
+        window.msRequestAnimationFrame     || 
+        function(/* function */ callback){
+            window.setTimeout(callback, 1000 / 60);
+        }
+    );
+}();
+
+requestAnimFrame(update);
 
 function update() {
-  requestAnimationFrame(update);
+  requestAnimFrame(update);
 	
-	
-		
   context.fillStyle   = '#000';
   context.strokeStyle = '#000';
   context.lineWidth   = 4;
@@ -77,6 +86,13 @@ function update() {
     
 }
 
-$(document).ready(function() {
-  onDeviceReady();
-});
+// If not PhoneGap device, then run onload.
+window.onload = function () {
+	if( !window.device ) {
+		onDeviceReady()
+	}
+}
+
+// If PhoneGap, run when ready.
+document.addEventListener('deviceready', onDeviceReady, false);
+
