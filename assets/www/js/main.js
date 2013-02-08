@@ -16,6 +16,12 @@ var resultObject;
 var contentId = "c04a2c84-6e8d-11e2-a9cd-fa163e53d66f";
 var programTitle = "the_simpsons_s24_e9";
 var referenceOffset = 0;
+var ytids = ['5JO6tq-bCkc', 'MiBkjXOdWYY'];
+var _index = Math.round(Math.random()*ytids.length)%ytids.length;
+var ytid = ytids[_index];
+if (ytid == '5JO6tq-bCkc') {
+  programTitle = "30_rock_s7_e11";
+}
 
 var seconds = '0';
 var data = {
@@ -39,7 +45,9 @@ function onDeviceReady() {
     if (resultObject.content_id) {
       window.contentId = resultObject.content_id;
     }
-
+    
+//    5JO6tq-bCkc
+    
     for(var i = 0; i < resultObject.content_attrs.length; i++) {
       var pair = resultObject.content_attrs[i];
       if (pair.name == "program_title" && pair.value) {

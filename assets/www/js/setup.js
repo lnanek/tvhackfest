@@ -58,9 +58,6 @@ $(document).on('ready', function () {
           
         }
         
-        var ytids = ['5JO6tq-bCkc', 'MiBkjXOdWYY'];
-        var index = Math.round(Math.random()*ytids.length)%ytids.length;
-        var ytid = ytids[index];
         iframe.attr('src', 'http://www.youtube.com/embed/'+ytid+'?autoplay=1').css({
           width: '853',
           height: '480'
