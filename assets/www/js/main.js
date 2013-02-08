@@ -22,6 +22,7 @@ var data = {
     comments: []
   }
 };
+var claps = [];
 
 var onDeviceReady = function() {
   ready = true;
@@ -62,6 +63,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
 $('body').on('click', function() {
   // console.log('clap', data[seconds].claps++);
   data[seconds].claps++;
+  claps[claps.length - 1]++;
 });
 setInterval(function() {
   seconds = (parseInt(seconds, 10) + 5).toString();
@@ -70,4 +72,5 @@ setInterval(function() {
     claps: 0,
     comments: []
   };
+  claps = _.last(_.pluck(data, 'claps'), 10); // TODO: Use global points var
 }, 5000);
