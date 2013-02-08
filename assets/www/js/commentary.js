@@ -12,6 +12,8 @@ var comments = {
     setTimeout(function () {
       _comment.fadeOut(1000);
     }, 3000);
+    
+    likeTimes.push(comment.time*10);
   }, 
   populateComments: function (e, t) {
     
