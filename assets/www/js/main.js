@@ -29,6 +29,7 @@ window.result = function(callback) {
 
 var counter = 0;
 var likeTimes = [];
+var showData;
 
 function onDeviceReady() {
   console.log("onDeviceReady()");
@@ -38,6 +39,16 @@ function onDeviceReady() {
   window.echo("echome", function(echoValue) {
 	  console.log("echome()");
     alert(echoValue); // should alert true.
+    
+    showData = jQuery.parseJSON(echoValue);
+    
+    for(var i = 0; i < showData.content_attrs.length; i++) {
+    	var pair = showData.content_attrs[i];
+    	if ( pair.name == "program_title" ) {
+    	    alert("show name = " + pair.value);    		
+    	}
+    }
+    
   });
 
   window.result(function(jsonString) {
