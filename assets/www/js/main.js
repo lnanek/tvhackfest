@@ -30,6 +30,7 @@ window.result = function(callback) {
 var counter = 0;
 var likeTimes = [];
 var showData;
+var dislikeTimes = [];
 
 function onDeviceReady() {
   console.log("onDeviceReady()");
