@@ -1,3 +1,6 @@
+var clientMode = 0; // 0 - phone, 1 - tv, 2 - smarttv
+
+
 $(document).on('ready', function () {
   var setsize = function() {
     var height = $(window).height();
@@ -21,7 +24,6 @@ $(document).on('ready', function () {
         toggleContent(false);
       }
     },
-    //Default is 75px, set to 0 for demo so any distance triggers swipe
     threshold:0
   });
   
