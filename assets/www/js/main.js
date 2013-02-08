@@ -77,11 +77,11 @@ function onDeviceReady() {
   var timer = $('.showTimer');
   var updateTimer = function() {
     counter++;
-<<<<<<< HEAD
     var sec = counter/10;
     timer.text("Time: " + sec + 's');
     if (sec == Math.round(sec)) {
-      $(document).trigger('showTimeUpdate', [Math.round((counter/10))]); // notify others 
+      console.log(sec);
+      $(document).trigger('showTimeUpdate', [sec]); // notify others 
     }
   };
   setInterval(updateTimer, 100);    
@@ -90,70 +90,56 @@ function onDeviceReady() {
     alert(echoValue == "echome"); // should alert true.
   });
     
-  window.echo("echome", function(echoValue) {
-    alert(echoValue == "echome"); // should alert true.
-  });
-  
   heatmap.init();
   comments.init();
-=======
-    timer.text("Time: " + (counter / 10) + 's');
-    $(document).trigger('showTimeUpdate', [Math.round((counter/10))]); // notify others
-  };
-  setInterval(updateTimer, 100);
-        
->>>>>>> 7670fe80110fbdc3ac677d9ff131042b0029d7ba
 }
 
 function onLikeThis() {
   likeTimes.push(counter / 10);
 }
 
-/*
-var context = document.getElementById('heatmap').getContext('2d');
+//var context = document.getElementById('heatmap').getContext('2d');
 
-window.requestAnimFrame = function(){
-    return (
-        window.requestAnimationFrame       || 
-        window.webkitRequestAnimationFrame || 
-        window.mozRequestAnimationFrame    || 
-        window.oRequestAnimationFrame      || 
-        window.msRequestAnimationFrame     || 
-        function(/* function */ callback){
-            window.setTimeout(callback, 1000 / 60);
-        }
-    );
-}();
+//window.requestAnimFrame = function(){
+//    return (
+//        window.requestAnimationFrame       || 
+//        window.webkitRequestAnimationFrame || 
+//        window.mozRequestAnimationFrame    || 
+//        window.oRequestAnimationFrame      || 
+//        window.msRequestAnimationFrame     || 
+//        function(/* function */ callback){
+//            window.setTimeout(callback, 1000 / 60);
+//        }
+//    );
+//}();
+//
+//requestAnimFrame(update);
+//
+//function update() {
+//  requestAnimFrame(update);
+//	
+//  context.fillStyle   = '#000';
+//  context.strokeStyle = '#000';
+//  context.lineWidth   = 4;
+//  context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+//    
+//  for(var i = 0; i < likeTimes.length; i++) {
+//    var likeTime = likeTimes[i];
+//    context.fillStyle   = '#f00';
+//    context.strokeStyle = '#f00';
+//    context.lineWidth   = 4;
+//    var time = (likeTime / counter) * context.canvas.width;
+//    context.fillRect(time, 0, 10, context.canvas.height);
+//  }
+//    
+//}
 
-requestAnimFrame(update);
-
-function update() {
-  requestAnimFrame(update);
-	
-  context.fillStyle   = '#000';
-  context.strokeStyle = '#000';
-  context.lineWidth   = 4;
-  context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-    
-  for(var i = 0; i < likeTimes.length; i++) {
-    var likeTime = likeTimes[i];
-    context.fillStyle   = '#f00';
-    context.strokeStyle = '#f00';
-    context.lineWidth   = 4;
-    var time = (likeTime / counter) * context.canvas.width;
-    context.fillRect(time, 0, 10, context.canvas.height);
-  }
-    
-}
-*/
-
-<<<<<<< HEAD
 $(document).ready(function() {
   if (!ready) {
     onDeviceReady();
   }
 });
-=======
+
 // If not PhoneGap device, then run onload.
 window.onload = function () {
 	if( !window.device ) {
@@ -163,7 +149,6 @@ window.onload = function () {
 
 // If PhoneGap, run when ready.
 document.addEventListener('deviceready', onDeviceReady, false);
->>>>>>> 7670fe80110fbdc3ac677d9ff131042b0029d7ba
 
 $( document ).bind( "pageshow", function( event, data ){
   var curPage = $(this).find('.ui-page-active');
