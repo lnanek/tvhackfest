@@ -15,90 +15,69 @@
   </head>
   <body>
 
-    <div data-role="page" id="formPage">
-
-      <div data-role="header" data-id="contentHeader">
-        <h1>Likeplause</h1>
-        <h2>Find and like the best parts of any show!</h2>
-      </div>
-
-      <div data-role="content">
-        <p>
-          What are you watching:
-        </p>
-        <form>					
-          <div>				
-            <label for="show-1">Show name:</label>
-            <input type="text" name="show-1" id="show-1" />	   
+    <!--    <div data-role="page" id="formPage">
+    
+          <div data-role="header" data-id="contentHeader">
+            <h1>Likeplause</h1>
+            <h2>Find and like the best parts of any show!</h2>
           </div>
-
-          <a id="submit" href="#resultsPage" data-role="button">Start!</a>
-
-        </form>
-      </div>        
-      <canvas id="canvas" resize></canvas>
-    </div>    
-
-    <div data-role="page" id="resultsPage">
-
-      <div data-role="header" data-id="contentHeader">
-        <h1>Likeplause</h1>
-        <h2>Find and like the best parts of any show!</h2>
-      </div>
-
-      <div data-role="content" class="content">
-        <p>
-          Tap like whenever a good part comes! As much as you like!
-        </p>
-        <p class="showTimer">00:00:00</p>
-        <form>					
-          <a data-role="button" onclick="onLikeThis()">Like This!</a>
-        </form>
-
-        <!--<canvas id="heatmap" ></canvas>-->
-
-        <div id="heatmap">
-          <div class="inner"></>
-          </div>
-        </div>    
-
-        <div data-role="footer" data-id="foo1" data-position="fixed" id="footer">
-          <div data-role="navbar">
-            <ul>
-              <li><a href="#resultsPage">Likes</a></li>
-              <li><a href="#commentsPage">Commentary</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div data-role="page" id="commentsPage">
-
-      <div data-role="header" data-id="contentHeader">
-        <h1>Likeplause</h1>
-        <h2>Find and like the best parts of any show!</h2>
-      </div>
-
-      <div data-role="content" class="content">
-        <p class="showTimer">00:00:00</p>
-        <p id="commentList">
-        </p>
-        <form>					
-          <textarea rows="2" cols="50" id="myComment"></textarea>
-          <a data-role="button" id="sendComment">Send</a>
-        </form>
-      </div>   
-
-      <!--      <div data-role="footer" data-id="foo1" data-position="fixed" id="footer">
-              <div data-role="navbar">
-                <ul>
-                  <li><a href="#resultsPage">Likes</a></li>
-                  <li><a href="#commentsPage">Commentary</a></li>
-                </ul>
+    
+          <div data-role="content">
+            <p>
+              What are you watching:
+            </p>
+            <form>					
+              <div>				
+                <label for="show-1">Show name:</label>
+                <input type="text" name="show-1" id="show-1" />	   
               </div>
-            </div>-->
+    
+              <a id="submit" href="#resultsPage" data-role="button">Start!</a>
+    
+            </form>
+          </div>        
+        </div>    -->
+
+    <!--    <div data-role="page" id="resultsPage">
+          <div data-role="content" class="content">-->
+    <div id="clap" class="content active">&nbsp;</div>
+    <div id="comment" class="content">
+      <form>					
+        <textarea rows="2" cols="50" id="commentMsg"></textarea>
+      </form>
     </div>
+    <canvas id="canvas" resize></canvas>
+    <!--      </div>
+          
+    
+        </div>-->
+
+    <!--    <div data-role="page" id="commentsPage">
+    
+          <div data-role="header" data-id="contentHeader">
+            <h1>Likeplause</h1>
+            <h2>Find and like the best parts of any show!</h2>
+          </div>
+    
+          <div data-role="content" class="content">
+            <p class="showTimer">00:00:00</p>
+            <p id="commentList">
+            </p>
+            <form>					
+              <textarea rows="2" cols="50" id="myComment"></textarea>
+              <a data-role="button" id="sendComment">Send</a>
+            </form>
+          </div>   -->
+
+    <!--      <div data-role="footer" data-id="foo1" data-position="fixed" id="footer">
+            <div data-role="navbar">
+              <ul>
+                <li><a href="#resultsPage">Likes</a></li>
+                <li><a href="#commentsPage">Commentary</a></li>
+              </ul>
+            </div>
+          </div>-->
+    <!--</div>-->
 
 
     <script type="text/javascript" src="jquery.mobile/jquery-1.7.2.min"></script>
@@ -108,12 +87,13 @@
     <script type="text/javascript" src="js/overthrow.js"></script>
     <script type="text/javascript" src="cordova-2.3.0.js"></script>
     <script type="text/javascript" src="js/paper.js"></script>
-    
+
     <script src="js/heatmap.js"></script>
-    <script src="js/commentary.js"></script>
+    <script src="js/comment.js"></script>
+    <script src="js/setup.js"></script>
     <script src="js/main.js"></script>
     <!-- <script src="js/commentary.js"></script> -->
-    
+
     <script type="text/paperscript" src="js/graph.js" canvas="canvas"></script>
 
   </body>

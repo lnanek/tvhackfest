@@ -90,8 +90,8 @@ function onDeviceReady() {
     alert(echoValue == "echome"); // should alert true.
   });
     
-  heatmap.init();
-  comments.init();
+//  heatmap.init();
+//  comments.init();
 }
 
 function onLikeThis() {
