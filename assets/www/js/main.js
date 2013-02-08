@@ -21,6 +21,12 @@ window.echo = function(str, callback) {
   }
 };
 
+window.result = function(callback) {
+  if (cordova && cordova.exec) {
+    cordova.exec(callback, $.noop, "Echo", "result", []);
+  }
+};
+
 var counter = 0;
 var likeTimes = [];
 
@@ -32,6 +38,11 @@ function onDeviceReady() {
   window.echo("echome", function(echoValue) {
 	  console.log("echome()");
     alert(echoValue); // should alert true.
+  });
+
+  window.result(function(jsonString) {
+    console.log(jsonString);
+    alert(jsonString);
   });
   
   //var lastTime = new Date();
