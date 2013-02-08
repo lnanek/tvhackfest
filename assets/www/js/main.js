@@ -1,14 +1,10 @@
-<<<<<<< HEAD
 serverUrl = "http://tvhackfest.workatplay.com/server.php?_url=";
 serverUrl = window.location.href + 'server.php?_url=';
 
 ready = false;
 console.log("main.js ran");
 
-function onBackButtonDown(e) { 
-=======
 function onBackButtonDown(e) {
->>>>>>> f27798df6ef4901a8b7935424e502a7c2cd52f9e
   console.log("onBackButtonDown()");
     
   if($.mobile.activePage.is('#formPage')){
@@ -78,18 +74,17 @@ function onDeviceReady() {
   });
   
   //var lastTime = new Date();
-<<<<<<< HEAD
-  var timer = $('.showTimer');
-  var updateTimer = function() {
-    counter++;
-    var sec = counter/10;
-    timer.text("Time: " + sec + 's');
-    if (sec == Math.round(sec)) {
-      console.log(sec);
-      $(document).trigger('showTimeUpdate', [sec]); // notify others 
-    }
-  };
-  setInterval(updateTimer, 100);    
+//  var timer = $('.showTimer');
+//  var updateTimer = function() {
+//    counter++;
+//    var sec = counter/10;
+//    timer.text("Time: " + sec + 's');
+//    if (sec == Math.round(sec)) {
+//      console.log(sec);
+//      $(document).trigger('showTimeUpdate', [sec]); // notify others 
+//    }
+//  };
+//  setInterval(updateTimer, 100);    
     
   window.echo("echome", function(echoValue) {
     alert(echoValue == "echome"); // should alert true.
@@ -97,23 +92,12 @@ function onDeviceReady() {
     
   heatmap.init();
   comments.init();
-=======
-  // var timer = $('.showTimer');
-  // var updateTimer = function() {
-  //   counter++;
-  //   timer.text("Time: " + (counter / 10) + 's');
-  //   $(document).trigger('showTimeUpdate', [Math.round((counter/10))]); // notify others
-  // };
-  // setInterval(updateTimer, 100);
-        
->>>>>>> f27798df6ef4901a8b7935424e502a7c2cd52f9e
 }
 
 function onLikeThis() {
   likeTimes.push(counter / 10);
 }
 
-<<<<<<< HEAD
 //var context = document.getElementById('heatmap').getContext('2d');
 
 //window.requestAnimFrame = function(){
@@ -149,7 +133,6 @@ function onLikeThis() {
 //  }
 //    
 //}
-=======
 // var context = document.getElementById('heatmap').getContext('2d');
 
 // window.requestAnimFrame = function(){
@@ -185,7 +168,6 @@ function onLikeThis() {
 //   }
     
 // }
->>>>>>> f27798df6ef4901a8b7935424e502a7c2cd52f9e
 
 // If not PhoneGap device, then run onload.
 window.onload = function () {
