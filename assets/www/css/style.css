@@ -30,11 +30,19 @@ h1 {
   display: block;
 }
 
+#commentList {
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+  -webkit-user-select: none;
+
+}
+
 #commentMsg {
   width: 100%;
-  background: #000;
+  background: #444;
   color: #fff;
-  border: 0;
+  outline: 0;
+  font-size: 20px;
 }
 
 * {

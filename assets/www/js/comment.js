@@ -96,7 +96,7 @@ $(document).on('ready', function () {
   });
   
   commentField.on('blur', function () {
-   toggleContent(false); 
+   commentField.val(''); 
   });
 
 });
