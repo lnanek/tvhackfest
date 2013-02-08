@@ -36,7 +36,7 @@ var comments = {
     
     $.ajax({
       dataType: "json",
-      url: serverUrl + 'js/data/comments.json',
+      url: serverUrl + 'js/data/comments' + programTitle + '.json',
       data: comment,
       success: function (data) {
         console.log('save', data);
@@ -59,10 +59,11 @@ var comments = {
     
     $.ajax({
       dataType: "json",
-      url: serverUrl + 'js/data/comments.json',
+      url: serverUrl + 'js/data/comments' + programTitle + '.json',
       //  data: data,
       success: function (data) {
         //        self.comments = data;
+        self.comments = {};
         for (var i = 0; i < data.length; i++) {
           var comment = data[i];
           if (!self.comments[comment.time]) {
@@ -90,7 +91,7 @@ $(document).on('ready', function () {
   };
   console.log('commentField', commentField);
   
-  comments.init();  
+  // comments.init();
   commentField.on('keypress', function(e,d) {
     if (e.charCode == 13) { // enter pressed
       
@@ -99,14 +100,14 @@ $(document).on('ready', function () {
         commentField.val('');
       }, 10);
     }
-  });
+});
   
   $('#comment').swipe( {
     swipe:function(event, direction, distance, duration, fingerCount) {
       if (direction == 'right') {
         $.ajax({
           dataType: "json",
-          url: serverUrl + 'js/data/comments.json',
+          url: serverUrl + 'js/data/comments' + programTitle + '.json',
           data: {
             clean:1
           },
