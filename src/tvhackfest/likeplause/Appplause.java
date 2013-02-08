@@ -12,7 +12,7 @@ import com.vobileinc.tvsyncexample.TVSYNCExampleActivity;
 /**
  * This class echoes a string called from JavaScript.
  */
-public class Echo extends CordovaPlugin {
+public class Appplause extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
     	Log.i("***Echo***", "execute: " + action);

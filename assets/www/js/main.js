@@ -8,7 +8,7 @@ ready = false;
 
 window.result = function(callback) {
   if (cordova && cordova.exec) {
-    cordova.exec(callback, $.noop, "Echo", "result", []);
+    cordova.exec(callback, $.noop, "Appplause", "result", []);
   }
 };
 
@@ -18,7 +18,7 @@ var contentId = "c04a2c84-6e8d-11e2-a9cd-fa163e53d66f";
 var programTitle = "the_simpsons_s24_e9";
 var referenceOffset = 0;
 
-var seconds = 0;
+var seconds = '0';
 var data = {
   '0': {
     claps: 0,
@@ -32,6 +32,7 @@ function onDeviceReady() {
   ready = true;
 
   window.result(function(jsonString) {
+    // alert(jsonString);
     resultObject = jQuery.parseJSON(jsonString);
 
     if (resultObject.content_id) {
@@ -44,13 +45,12 @@ function onDeviceReady() {
         window.programTitle = pair.value;
       } else if (pair.name == "reference_offset" && pair.value) {
         window.referenceOffset = parseInt(pair.value[0], 10);
+        window.referenceOffset = Math.round(window.referenceOffset / 5) * 5;
       }
     }
 
-    counter = referenceOffset;
+    seconds = referenceOffset.toString();
   });
-
-  // comments.init();
 }
 
 // If not PhoneGap device, then run onload.
