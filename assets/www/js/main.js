@@ -1,8 +1,7 @@
-serverUrl = window.location.href + 'server.php?_url=';
-//
-if (navigator.userAgent.indexOf('GoogleTV')>0 || navigator.userAgent.indexOf('Android')>0) {
+//serverUrl = window.location.href + 'server.php?_url=';
+//if (navigator.userAgent.indexOf('GoogleTV')>0 || navigator.userAgent.indexOf('Android')>0) {
   serverUrl = "http://tvhackfest.workatplay.com/server.php?_url=";
-}
+//}
 
 ready = false;
 

@@ -16,7 +16,7 @@ var comments = {
 //    likeTimes.push(comment.time*10);
   }, 
   populateComments: function (e, t) {
-//    console.log(t, 'populateComments');
+    console.log('populateComments');
     //    if (t == )
     
     var self = this;
@@ -56,7 +56,7 @@ var comments = {
     
     self.commentList = $('#commentList');
     
-    $(document).on('showTimeUpdate', _.bind(self.populateComments, self));
+//    $(document).on('showTimeUpdate', _.bind(self.populateComments, self));
     $('#sendComment').click(_.bind(self.sendComment, self));
     
     $.ajax({

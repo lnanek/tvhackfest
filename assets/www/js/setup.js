@@ -50,6 +50,8 @@ $(document).on('ready', function () {
           content.removeClass('active');
           comment.addClass('active');
           comment.find('form').hide();
+          
+          comments.boot();
         }
         
         iframe.attr('src', 'http://www.youtube.com/embed/MiBkjXOdWYY').css({
@@ -68,6 +70,8 @@ $(document).on('ready', function () {
 //        $('h1').hide();
 //        $('#comment').hide();
 //      }
+    } else {
+      comments.boot();
     }
   }
   
