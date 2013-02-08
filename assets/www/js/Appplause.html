@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)http://localhost/tvhackfest/tvhackfest/tvhackfest/assets/www/ -->
+<html class=" overthrow-enabled"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+
+    <link rel="stylesheet" href="http://localhost/tvhackfest/tvhackfest/tvhackfest/assets/www/css/style.css">
+
+    <!-- <link rel="stylesheet" type="text/css" href="jquery.mobile/jquery.mobile-1.1.0.css" />
+    <link rel="stylesheet" type="text/css" href="themes/dark_gray_dark_green.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+
+    <title>Appplause</title>        
+  <link type="text/css" rel="stylesheet" href="chrome-extension://clcbnchcgjcjphmnpndoelbdhakdlfkk/stylesheets/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://clcbnchcgjcjphmnpndoelbdhakdlfkk/javascripts/page_context.js"></script><link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/page_context.js"></script></head>
+  <body quick-markup_injected="true" screen_capture_injected="true">
+    <h1>App<span id="plause" style="opacity: 0.2;">plause</span></h1>
+
+    <!--    <div data-role="page" id="formPage">
+    
+          <div data-role="header" data-id="contentHeader">
+            <h1>Likeplause</h1>
+            <h2>Find and like the best parts of any show!</h2>
+          </div>
+    
+          <div data-role="content">
+            <p>
+              What are you watching:
+            </p>
+            <form>					
+              <div>				
+                <label for="show-1">Show name:</label>
+                <input type="text" name="show-1" id="show-1" />	   
+              </div>
+    
+              <a id="submit" href="#resultsPage" data-role="button">Start!</a>
+    
+            </form>
+          </div>        
+        </div>    -->
+
+    <!--    <div data-role="page" id="resultsPage">
+          <div data-role="content" class="content">-->
+    <!--<div id="clap" class="content active">&nbsp;</div>-->
+    <div id="comment" class="content active" style="height: 872px;">
+      <form>					
+        <span id="myname">user10</span>:<textarea rows="2" cols="50" id="commentMsg"></textarea>
+      </form>
+      <div id="commentList"><div>user10: a</div><div>user10: rfa</div><div style="display: none;">user10: rfqwae</div><div style="display: none;">user10: ae</div><div style="display: none;">user10: sf</div><div style="display: none;">user10: sdfa</div><div style="display: none;">user10: fda</div><div style="display: none;">user10: fa</div><div style="display: none;">user10: ads</div><div style="display: none;">user10: asdfasf</div><div style="display: none;">user39: a</div><div style="display: none;">user39: esfd</div><div style="display: none;">user39: r</div><div style="display: none;">user39: da</div><div style="display: none;">user39: asf</div><div style="display: none;">user39: asdf</div><div style="display: none;">user39: adsf</div><div style="display: none;">user39: asdf</div><div style="display: none;">user83: asdfasdfe</div><div style="display: none;">user83: asdfasdf</div></div>
+      <canvas id="canvas" resize="" width="914" height="514"></canvas>
+    </div>
+    <div id="tv" class="content" style="height: 872px;">
+      <div class="tvoption">TV Mode: <a href="http://localhost/tvhackfest/tvhackfest/tvhackfest/assets/www/legacy" class="tvmode">Legacy</a> | <a href="http://localhost/tvhackfest/tvhackfest/tvhackfest/assets/www/smart" class="tvmode">Smart</a></div>
+      <iframe></iframe>
+    </div>
+    <!--      </div>
+          
+    
+        </div>-->
+
+    <!--    <div data-role="page" id="commentsPage">
+    
+          <div data-role="header" data-id="contentHeader">
+            <h1>Likeplause</h1>
+            <h2>Find and like the best parts of any show!</h2>
+          </div>
+    
+          <div data-role="content" class="content">
+            <p class="showTimer">00:00:00</p>
+            <p id="commentList">
+            </p>
+            <form>					
+              <textarea rows="2" cols="50" id="myComment"></textarea>
+              <a data-role="button" id="sendComment">Send</a>
+            </form>
+          </div>   -->
+
+    <!--      <div data-role="footer" data-id="foo1" data-position="fixed" id="footer">
+            <div data-role="navbar">
+              <ul>
+                <li><a href="#resultsPage">Likes</a></li>
+                <li><a href="#commentsPage">Commentary</a></li>
+              </ul>
+            </div>
+          </div>-->
+    <!--</div>-->
+
+
+    <script type="text/javascript" src="./Appplause_files/jquery-1.7.2.min"></script>
+    <!--<script type="text/javascript" src="jquery.mobile/jquery.mobile-1.1.0.js"></script>-->		
+    <script type="text/javascript" src="./Appplause_files/touchswipe.js"></script>
+    <script type="text/javascript" src="./Appplause_files/custom-scripting.js"></script>
+    <script type="text/javascript" src="./Appplause_files/underscore.js"></script>
+    <script type="text/javascript" src="./Appplause_files/overthrow.js"></script>
+    <script type="text/javascript" src="./Appplause_files/cordova-2.3.0.js"></script>
+    <script type="text/javascript" src="./Appplause_files/paper.js"></script>
+
+    <script src="./Appplause_files/heatmap.js"></script>
+    <script src="./Appplause_files/comment.js"></script>
+    <script src="./Appplause_files/setup.js"></script>
+    <script src="./Appplause_files/main.js"></script>
+    <!-- <script src="js/commentary.js"></script> -->
+
+    <script type="text/paperscript" src="./Appplause_files/graph.js" canvas="canvas" id="http://localhost/tvhackfest/tvhackfest/tvhackfest/assets/www/js/graph.js" data-paper-loaded="true"></script>
+
+  
+
+<div id="window-resizer-tooltip" style="display: block;"><a href="http://localhost/tvhackfest/tvhackfest/tvhackfest/assets/www/#" title="Edit settings" style="background-image: url(chrome-extension://kkelicaakdanhinjdeammmilcgefonfh/images/icon_19.png);"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">914</span> x <span class="tooltipHeight" id="winHeight">1144</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">914</span> x <span class="tooltipHeight" id="vpHeight">1028</span></div></body></html>

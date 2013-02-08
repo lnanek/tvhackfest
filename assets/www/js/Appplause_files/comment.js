@@ -8,8 +8,6 @@ var comments = {
     var self = this;
     var _comment = $("<div>").html(comment.name + ': ' + comment.msg);  
     
-    console.log('comment', comment);
-    
     self.commentList.prepend(_comment);
     setTimeout(function () {
       _comment.fadeOut(1000);

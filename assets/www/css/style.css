@@ -41,6 +41,12 @@ p {
   padding: 10px;
 }
 
+body.tv #commentList {
+  z-index: 1000;
+  top: -100px;
+  position: relative;
+}
+
 #commentMsg {
   width: 100%;
   height: 30px;
@@ -51,6 +57,10 @@ p {
   font-size: 20px;
   line-height: 30px;
   padding-left: 10px;
+}
+
+iframe {
+  display: none;
 }
 
 * {
