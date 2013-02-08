@@ -96,3 +96,13 @@ window.onload = function () {
 // If PhoneGap, run when ready.
 document.addEventListener('deviceready', onDeviceReady, false);
 
+$( document ).bind( "pageshow", function( event, data ){
+  var curPage = $(this).find('.ui-page-active');
+  
+  data.prevPage.find('#footer').detach().appendTo(curPage);
+  data.prevPage.find('#heatmap').detach().appendTo(curPage.find('.content'));
+//  console.log('pageshow', curPage, data.prevPage);
+
+//  curPage.
+});
+
