@@ -15,7 +15,9 @@ $(document).on('ready', function () {
 
   if (navigator.userAgent.indexOf('GoogleTV')>0 || location.search.indexOf('tv')>0) {
     clientMode = 1;
-    $('#canvas').css({ height: '150px' });
+    $('#canvas').css({
+      height: '150px'
+    });
   }
   
   
@@ -53,13 +55,30 @@ $(document).on('ready', function () {
         
           setTimeout(comments.boot, 5000);
           $('canvas').css('height', 100);
+          
         }
         
-        iframe.attr('src', 'http://www.youtube.com/embed/MiBkjXOdWYY?autoplay=1').css({
+        var ytids = ['5JO6tq-bCkc', 'MiBkjXOdWYY'];
+        var index = Math.round(Math.random()*ytids.length)%ytids.length;
+        var ytid = ytids[index];
+        iframe.attr('src', 'http://www.youtube.com/embed/'+ytid+'?autoplay=1').css({
           width: '853',
           height: '480'
         }).show();
         
+        
+//        var player = new YT.Player('player', {
+//          videoId: ytid,
+//          events: {
+//            'onReady': function () {
+////              alert('done');
+//            },
+//            'onStateChange': function (e,d) {
+//              console.log(e,d);
+//            }
+//          }
+//        });
+  
         console.log('iframe', iframe);
         
         e.preventDefault();
@@ -102,7 +121,7 @@ $(document).on('ready', function () {
 //  $(window).resize(setsize);
 });
 
-/*
+
 var tag = document.createElement('script');
 
 // This is a protocol-relative URL as described here:
@@ -113,14 +132,6 @@ tag.src = "//www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var player;
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    videoId: 'u1zgFlCw8Aw',
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    }
-  });
+  
 }
-*/

@@ -52,6 +52,7 @@ var comments = {
   init: function () {
     var self = this;
     
+    self.showTime = 0;
     self.name = 'user'+Math.round(Math.random()*100);
     $('#myname').html(self.name);
     
@@ -87,7 +88,7 @@ var comments = {
     };
     console.log('commentField', commentField);
   
-     comments.init();
+//     comments.init();
     commentField.on('keypress', function(e,d) {
       if (e.charCode == 13) { // enter pressed
       

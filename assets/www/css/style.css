@@ -46,6 +46,8 @@ body.tv #commentList {
   z-index: 1000;
   top: -100px;
   position: relative;
+  font-size: 30px;
+  text-shadow: 2px 2px 2px #000;
 }
 
 #commentMsg {
