@@ -79,13 +79,15 @@ var comments = {
     setInterval(_.bind(self.timer, self), 1000);
   },
   boot: function () {
+    console.log('comment boot');
+    
     var commentField = $('#commentMsg');
     var submit = function (str) {
       alert(str);
     };
     console.log('commentField', commentField);
   
-    // comments.init();
+     comments.init();
     commentField.on('keypress', function(e,d) {
       if (e.charCode == 13) { // enter pressed
       
@@ -117,7 +119,6 @@ var comments = {
     commentField.on('blur', function () {
       commentField.val(''); 
     });
-
   }
 };
 
