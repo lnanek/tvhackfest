@@ -13,7 +13,7 @@ var comments = {
       _comment.fadeOut(1000);
     }, 3000);
     
-    likeTimes.push(comment.time*10);
+//    likeTimes.push(comment.time*10);
   }, 
   populateComments: function (e, t) {
 //    console.log(t, 'populateComments');
