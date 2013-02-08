@@ -34,11 +34,13 @@ import com.vobileinc.tvsyncapi.TVSYNCService.OnQueryCreateListener;
 
 public class TVSYNCExampleActivity extends Activity {
 	
-	public static String LAST_RESULT = "No Result";
+	// public static String LAST_RESULT = "{\"content_attrs\":[{\"value\":\"\",\"name\":\"rating\"},{\"value\":null,\"name\":\"logo\"},{\"value\":\"the_simpsons_s24_e9\",\"name\":\"program_title\"},{\"value\":null,\"name\":\"started_at\"},{\"value\":\"2013-02-04\",\"name\":\"air_date\"},{\"value\":\"\",\"name\":\"rights_owner\"},{\"value\":0,\"name\":\"season_number\"},{\"value\":\"\",\"name\":\"description\"},{\"value\":\"\",\"name\":\"tags\"},{\"value\":\"\",\"name\":\"director\"},{\"value\":0,\"name\":\"episodic_number\"},{\"value\":null,\"name\":\"ended_at\"},{\"value\":\"\",\"name\":\"studio_owner\"},{\"value\":null,\"name\":\"channel_name\"},{\"value\":[\"177\"],\"name\":\"reference_offset\"}],\"content_id\":\"c04a2c84-6e8d-11e2-a9cd-fa163e53d66f\"}";
+	public static String LAST_RESULT = "{}";
 
 	static final String				kApiKey		= "twmidgtol7t99yc4v86j6k2hi73kbq8q";
 	static final String				LOG_TAG		= "TVSYNCExampleActivity";
 
+	Button							skip;
 	Button							setupImg;
 	Button							setupVid;
 	Button							setupAud;
@@ -48,7 +50,6 @@ public class TVSYNCExampleActivity extends Activity {
 	FrameLayout						previewFrame;
 	ImageView						capturedImg;
 	TextView						resultTxt;
-	ToggleButton					livemode;
 
 	TVSYNCQuery						query;
 
@@ -171,7 +172,7 @@ public class TVSYNCExampleActivity extends Activity {
 		// construct parameters
 		// live or non-live
 		HashMap<TVSYNCQueryParameterKey, TVSYNCQueryParameterValue> params = new HashMap<TVSYNCQueryParameterKey, TVSYNCQueryParameterValue>();
-		params.put(TVSYNCQueryParameterKey.TVSYNCQueryParameterKeyLiveQuery, livemode.isChecked() ? TVSYNCQueryParameterValue.Yes : TVSYNCQueryParameterValue.No);
+		params.put(TVSYNCQueryParameterKey.TVSYNCQueryParameterKeyLiveQuery, TVSYNCQueryParameterValue.No);
 		// non-stop?
 		// params.put(TVSYNCQueryParameterKey.TVSYNCQueryParameterKeyQueryTimeout, TVSYNCQueryParameterValue.);
 
@@ -206,8 +207,16 @@ public class TVSYNCExampleActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		livemode = (ToggleButton) findViewById(R.id.livemode);
-
+		skip = (Button) findViewById(R.id.skip);
+		skip.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(TVSYNCExampleActivity.this, ViewWebContentActivity.class);
+				startActivity(intent);
+			}
+		});
+		
+		
 		setupImg = (Button) findViewById(R.id.setupImg);
 		setupImg.setOnClickListener(new OnClickListener() {
 			@Override
@@ -332,6 +341,5 @@ public class TVSYNCExampleActivity extends Activity {
 		setupImg.setEnabled(enabled);
 		setupAud.setEnabled(enabled);
 		setupVid.setEnabled(enabled);
-		livemode.setEnabled(enabled);
 	}
 }
