@@ -15,7 +15,7 @@ import com.vobileinc.tvsyncexample.TVSYNCExampleActivity;
 public class Appplause extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-    	Log.i("***Echo***", "execute: " + action);
+    	// Log.i("***Echo***", "execute: " + action);
         if (action.equals("echo")) {
             String message = args.getString(0); 
             echo(message, callbackContext);

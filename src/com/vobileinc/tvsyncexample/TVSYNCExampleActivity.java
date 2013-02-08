@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -204,6 +205,8 @@ public class TVSYNCExampleActivity extends Activity {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		Log.i("***Echo***", "model: " + Build.MODEL);
+		Log.i("***Echo***", "product: " + Build.PRODUCT);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
@@ -224,6 +227,7 @@ public class TVSYNCExampleActivity extends Activity {
 				createQuery(TVSYNCQueryType.TVSYNCQueryTypeImage);
 			}
 		});
+		setupImg.setText(Build.PRODUCT);
 
 		setupVid = (Button) findViewById(R.id.setupVid);
 		setupVid.setOnClickListener(new OnClickListener() {

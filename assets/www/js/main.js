@@ -31,6 +31,8 @@ var maxClaps = 0;
 function onDeviceReady() {
   ready = true;
 
+  var myShowIsSet = false;
+
   window.result(function(jsonString) {
     // alert(jsonString);
     resultObject = jQuery.parseJSON(jsonString);
@@ -43,6 +45,8 @@ function onDeviceReady() {
       var pair = resultObject.content_attrs[i];
       if (pair.name == "program_title" && pair.value) {
         window.programTitle = pair.value;
+        $('#myshow').text(programTitle);
+        myShowIsSet = true;
       } else if (pair.name == "reference_offset" && pair.value) {
         window.referenceOffset = parseInt(pair.value[0], 10);
         window.referenceOffset = Math.round(window.referenceOffset / 5) * 5;
@@ -50,7 +54,14 @@ function onDeviceReady() {
     }
 
     seconds = referenceOffset.toString();
+    comments.showTime = referenceOffset;
   });
+
+  setTimeout(function() {
+    if (!myShowIsSet) {
+      $('#myshow').text(programTitle);
+    }
+  }, 2000);
 }
 
 // If not PhoneGap device, then run onload.
@@ -64,7 +75,7 @@ window.onload = function () {
 document.addEventListener('deviceready', onDeviceReady, false);
 
 var plause = $('#plause');
-plause.css({ opacity: '0.2' });
+plause.css({ opacity: '0.3' });
 
 // Clapping
 $('body').on('click', function() {
@@ -77,7 +88,11 @@ $('body').on('click', function() {
   }
 });
 setInterval(function() {
-  var lastClaps = data[seconds].claps;
+  var lastClaps = 0;
+  if (data[seconds] && data[seconds].claps) {
+    lastClaps = data[seconds].claps;
+  }
+
   console.log('claps', lastClaps);
 
   seconds = (parseInt(seconds, 10) + 5).toString();
@@ -92,5 +107,5 @@ setInterval(function() {
   }
   maxClaps = _.max(claps);
 
-  plause.css({ opacity: 0.2 + (lastClaps / maxClaps) * 0.8 });
+  plause.css({ opacity: 0.3 + (lastClaps / maxClaps) * 0.7 });
 }, 5000);
