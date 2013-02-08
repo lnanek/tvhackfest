@@ -29,7 +29,8 @@ $(document).on('ready', function () {
   
   $('.content').swipe( {
     swipe:function(event, direction, distance, duration, fingerCount) {
-      if (direction == 'left') {
+//      console.log('direction', direction);
+      if (direction == 'up') {
         toggleContent(true);
       } else {
         toggleContent(false);
