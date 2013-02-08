@@ -20,6 +20,9 @@ public class Echo extends CordovaPlugin {
             String message = args.getString(0); 
             this.echo(message, callbackContext);
             return true;
+        } else if (action.equals("result")) {
+        	this.result(callbackContext);
+        	return true;
         }
         return false;
     }
@@ -32,5 +35,9 @@ public class Echo extends CordovaPlugin {
         } else {
             callbackContext.error("Expected one non-empty string argument.");
         }
+    }
+    
+    private void result(CallbackContext callbackContext) {
+    	callbackContext.success(TVSYNCExampleActivity.LAST_RESULT);
     }
 }
