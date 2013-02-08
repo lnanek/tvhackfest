@@ -16,7 +16,7 @@ var comments = {
     likeTimes.push(comment.time*10);
   }, 
   populateComments: function (e, t) {
-    
+//    console.log(t, 'populateComments');
     //    if (t == )
     
     var self = this;

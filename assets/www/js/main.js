@@ -134,12 +134,6 @@ function onLikeThis() {
 //    
 //}
 
-$(document).ready(function() {
-  if (!ready) {
-    onDeviceReady();
-  }
-});
-
 // If not PhoneGap device, then run onload.
 window.onload = function () {
 	if( !window.device ) {
