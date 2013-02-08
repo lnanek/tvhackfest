@@ -18,7 +18,7 @@ public class Echo extends CordovaPlugin {
     	Log.i("***Echo***", "execute: " + action);
         if (action.equals("echo")) {
             String message = args.getString(0); 
-            this.echo(message, callbackContext);
+            echo(message, callbackContext);
             return true;
         }
         return false;

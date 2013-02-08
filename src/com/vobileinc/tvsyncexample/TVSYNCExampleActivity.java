@@ -34,7 +34,7 @@ import com.vobileinc.tvsyncapi.TVSYNCService.OnQueryCreateListener;
 
 public class TVSYNCExampleActivity extends Activity {
 	
-	public static String LAST_RESULT = "No Result";
+	public static String LAST_RESULT = "**No Result**";
 
 	static final String				kApiKey		= "twmidgtol7t99yc4v86j6k2hi73kbq8q";
 	static final String				LOG_TAG		= "TVSYNCExampleActivity";

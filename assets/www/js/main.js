@@ -17,7 +17,7 @@ window.echo = function(str, callback) {
 	  console.log("echo()");
     cordova.exec(callback, function(err) {
       callback('Nothing to echo.');
-    }, "Echo", "echo", "message to java");
+    }, "Echo", "echo", ["Message to Java."]);
   }
 };
 
