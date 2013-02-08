@@ -60,7 +60,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 // Clapping
 $('body').on('click', function() {
-  console.log('clap', data[seconds].claps++);
+  // console.log('clap', data[seconds].claps++);
   data[seconds].claps++;
 });
 setInterval(function() {
