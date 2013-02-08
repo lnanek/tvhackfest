@@ -14,3 +14,23 @@ gen/
 
 # Local configuration file (sdk path, etc)
 local.properties
+
+.DS_Store
+
+.DS_Store
+
+assets/.DS_Store
+
+assets/www/.DS_Store
+
+assets/www/img/.DS_Store
+
+assets/www/res/icon/.DS_Store
+
+assets/www/res/.DS_Store
+
+res/.DS_Store
+
+src/.DS_Store
+
+src/com/.DS_Store
