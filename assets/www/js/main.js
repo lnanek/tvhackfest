@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 serverUrl = "http://tvhackfest.workatplay.com/server.php?_url=";
 serverUrl = window.location.href + 'server.php?_url=';
 
@@ -5,6 +6,9 @@ ready = false;
 console.log("main.js ran");
 
 function onBackButtonDown(e) { 
+=======
+function onBackButtonDown(e) {
+>>>>>>> f27798df6ef4901a8b7935424e502a7c2cd52f9e
   console.log("onBackButtonDown()");
     
   if($.mobile.activePage.is('#formPage')){
@@ -74,6 +78,7 @@ function onDeviceReady() {
   });
   
   //var lastTime = new Date();
+<<<<<<< HEAD
   var timer = $('.showTimer');
   var updateTimer = function() {
     counter++;
@@ -92,12 +97,23 @@ function onDeviceReady() {
     
   heatmap.init();
   comments.init();
+=======
+  // var timer = $('.showTimer');
+  // var updateTimer = function() {
+  //   counter++;
+  //   timer.text("Time: " + (counter / 10) + 's');
+  //   $(document).trigger('showTimeUpdate', [Math.round((counter/10))]); // notify others
+  // };
+  // setInterval(updateTimer, 100);
+        
+>>>>>>> f27798df6ef4901a8b7935424e502a7c2cd52f9e
 }
 
 function onLikeThis() {
   likeTimes.push(counter / 10);
 }
 
+<<<<<<< HEAD
 //var context = document.getElementById('heatmap').getContext('2d');
 
 //window.requestAnimFrame = function(){
@@ -133,10 +149,47 @@ function onLikeThis() {
 //  }
 //    
 //}
+=======
+// var context = document.getElementById('heatmap').getContext('2d');
+
+// window.requestAnimFrame = function(){
+//     return (
+//         window.requestAnimationFrame       || 
+//         window.webkitRequestAnimationFrame || 
+//         window.mozRequestAnimationFrame    || 
+//         window.oRequestAnimationFrame      || 
+//         window.msRequestAnimationFrame     || 
+//         function(/* function */ callback){
+//             window.setTimeout(callback, 1000 / 60);
+//         }
+//     );
+// }();
+
+// requestAnimFrame(update);
+
+// function update() {
+//   requestAnimFrame(update);
+	
+//   context.fillStyle   = '#000';
+//   context.strokeStyle = '#000';
+//   context.lineWidth   = 4;
+//   context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+    
+//   for(var i = 0; i < likeTimes.length; i++) {
+//     var likeTime = likeTimes[i];
+//     context.fillStyle   = '#f00';
+//     context.strokeStyle = '#f00';
+//     context.lineWidth   = 4;
+//     var time = (likeTime / counter) * context.canvas.width;
+//     context.fillRect(time, 0, 10, context.canvas.height);
+//   }
+    
+// }
+>>>>>>> f27798df6ef4901a8b7935424e502a7c2cd52f9e
 
 // If not PhoneGap device, then run onload.
 window.onload = function () {
-	if( !window.device ) {
+	if(!window.device) {
 		onDeviceReady();
 	}
 };
@@ -145,12 +198,14 @@ window.onload = function () {
 document.addEventListener('deviceready', onDeviceReady, false);
 
 $( document ).bind( "pageshow", function( event, data ){
-  var curPage = $(this).find('.ui-page-active');
+  // var curPage = $(this).find('.ui-page-active');
   
-  data.prevPage.find('#footer').detach().appendTo(curPage);
-  data.prevPage.find('#heatmap').detach().appendTo(curPage.find('.content'));
-//  console.log('pageshow', curPage, data.prevPage);
-
-//  curPage.
+  // data.prevPage.find('#footer').detach().appendTo(curPage);
+  // data.prevPage.find('#heatmap').detach().appendTo(curPage.find('.content'));
+  // console.log('pageshow', curPage, data.prevPage);
 });
 
+$('body').on('click', function() {
+  console.log('click');
+  likeTimes.push(counter / 10);
+});

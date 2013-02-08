@@ -27,7 +27,12 @@ body {
 }
 
 body {
+    background-color: black;
     font-size: 14px;
+}
+
+body > div {
+    background: none;
 }
 
 @media screen and (-webkit-device-pixel-ratio: 0.75) {
