@@ -14,6 +14,7 @@ function onBackButtonDown(e) {
 
 window.echo = function(str, callback) {
   if (cordova && cordova.exec) {
+	  console.log("echo()");
     cordova.exec(callback, function(err) {
       callback('Nothing to echo.');
     }, "Echo", "echo", [str]);
@@ -29,7 +30,8 @@ function onDeviceReady() {
   document.addEventListener("backbutton", onBackButtonDown, true);
 
   window.echo("echome", function(echoValue) {
-    alert(echoValue == "echome"); // should alert true.
+	  console.log("echome()");
+    alert(echoValue); // should alert true.
   });
   
   //var lastTime = new Date();
