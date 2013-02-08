@@ -205,8 +205,10 @@ public class TVSYNCExampleActivity extends Activity {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		Log.i("***Echo***", "model: " + Build.MODEL);
-		Log.i("***Echo***", "product: " + Build.PRODUCT);
+		if (Build.PRODUCT.equals("StreamPlayer")) {
+			Intent intent = new Intent(TVSYNCExampleActivity.this, ViewWebContentActivity.class);
+			startActivity(intent);
+		}
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
@@ -227,7 +229,6 @@ public class TVSYNCExampleActivity extends Activity {
 				createQuery(TVSYNCQueryType.TVSYNCQueryTypeImage);
 			}
 		});
-		setupImg.setText(Build.PRODUCT);
 
 		setupVid = (Button) findViewById(R.id.setupVid);
 		setupVid.setOnClickListener(new OnClickListener() {

@@ -45,6 +45,7 @@ function onDeviceReady() {
       if (pair.name == "program_title" && pair.value) {
         window.programTitle = pair.value;
         $('#myshow').text(programTitle);
+        comments.init();
         myShowIsSet = true;
       } else if (pair.name == "reference_offset" && pair.value) {
         window.referenceOffset = parseInt(pair.value[0], 10);
@@ -59,6 +60,7 @@ function onDeviceReady() {
   setTimeout(function() {
     if (!myShowIsSet) {
       $('#myshow').text(programTitle);
+      comments.init();
     }
   }, 2000);
 }
